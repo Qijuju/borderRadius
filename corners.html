@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3 border-radius兼容性</title>
+    <style>
+        /*2. 其次，定义以下样式*/
+        .roundedCorners,.roundedCorners2{
+            width:300px;
+            height:200px;
+            padding:10px;
+            background-color:#ddeef6;
+            border:1px solid #f30;
+            margin:20px;
+
+            -moz-border-radius: 10px; /* Firefox */
+            -webkit-border-radius: 10px; /* Safari 和 Chrome */
+        }
+    </style>
+    <!--1. 首先，引入curvycorners.js 文件-->
+    <script src="js/curvycorners.js" type="text/javascript"></script>
+    <!--3. 然后在上面的样式后面定义以下 js 代码-->
+    <script type="text/javascript">
+        addEvent(window,'load', initCorners);
+        function initCorners() {
+            var setting = {
+                tl:{radius:10},
+                tr:{radius:10},
+                bl:{radius:10},
+                br:{radius:10},
+                antiAlias:true
+            };
+            //如果想给不同的css类设置圆角属性，你可以执行多次代码，如下：
+            curvyCorners(setting, ".roundedCorners");
+            curvyCorners(setting, ".roundedCorners2");
+        }
+    </script>
+</head>
+<body>
+    <div class="roundedCorners"></div>
+    <div class="roundedCorners2"></div>
+
+</body>
+</html>
