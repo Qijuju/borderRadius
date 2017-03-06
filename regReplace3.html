@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    var str = "zzz_shop_apple_banana_write";
+
+    //方式一：首字母大写
+    function Fn(str) {
+        str = str.replace(/^[a-z]/ , function ($1) {
+            return $1.toUpperCase();
+        });
+        str = str.replace(/\_[a-zA-Z]/g, function ($1) {
+            return $1.toUpperCase();
+        });
+        return str;
+    }
+    document.write(Fn(str)+"<br/>");
+
+    //方式二：首字母大写
+    function Case(str) {
+        return str.replace(/^[a-z]|\_[a-zA-Z]/g, function ($1) {
+            return $1.toUpperCase();
+        });
+    }
+    document.write(Case(str)+"<br/>");
+
+    //所有字母大些
+    function toUpperC( str) {
+        return  str.replace(/([a-zA-Z\_])/g, function (match,$1) {
+            return $1.toUpperCase();
+        })
+    }
+    var t= toUpperC(str) ;
+    document.write(t+"<br/>");
+
+    var s = t.replace(/\_/g , "");
+    document.write(s+"<br/>");
+
+
+</script>
+
+</body>
+</html>
